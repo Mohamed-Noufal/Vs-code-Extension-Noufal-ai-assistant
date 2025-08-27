@@ -1,0 +1,25 @@
+# Node
+node_modules/
+**/node_modules/
+
+# Python venvs
+venv/
+.venv/
+**/.venv/
+
+# Logs and caches
+logs/
+**/logs/
+.pytest_cache/
+**/.pytest_cache/
+.cache/
+**/.cache/
+
+# Build artifacts
+*.vsix
+extension/out/*.map
+**/*.map
+
+# VS Code
+.vscode/
+**/.vscode/

@@ -1,0 +1,46 @@
+# FastAPI and ASGI
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+websockets>=11.0
+
+# AI and ML - Using compatible versions
+langchain>=0.0.350
+langchain-community>=0.0.10
+langgraph>=0.0.20
+ollama>=0.1.7
+sentence-transformers>=2.2.0
+pydantic>=2.0.0
+
+# Database and Caching
+redis>=5.0.0
+sqlalchemy>=2.0.0
+alembic>=1.10.0
+
+# HTTP and API
+httpx>=0.24.0
+aiofiles>=23.0.0
+python-multipart>=0.0.5
+
+# Development and Testing
+pytest>=7.0.0
+pytest-asyncio>=0.20.0
+pytest-cov>=4.0.0
+black>=23.0.0
+isort>=5.10.0
+flake8>=6.0.0
+
+# Logging and Monitoring
+structlog>=23.0.0
+prometheus-client>=0.15.0
+
+# Security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.0
+
+# Configuration
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Utilities
+click>=8.0.0
+tenacity>=8.0.0

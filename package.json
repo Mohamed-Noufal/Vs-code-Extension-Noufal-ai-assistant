@@ -1,0 +1,39 @@
+{
+  "name": "multi-agent-dev-system",
+  "version": "1.0.0",
+  "description": "Multi-agent development system POC with local AI models",
+  "private": true,
+  "workspaces": [
+    "extension"
+  ],
+  "scripts": {
+    "dev": "make dev",
+    "build": "make build",
+    "test": "make test",
+    "setup": "make dev-setup",
+    "clean": "make clean",
+    "lint": "make lint"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/multi-agent-dev-system.git"
+  },
+  "keywords": [
+    "ai",
+    "multi-agent",
+    "development",
+    "local-models",
+    "vscode",
+    "fastapi"
+  ],
+  "author": "Your Team",
+  "license": "MIT"
+}

@@ -1,0 +1,25 @@
+# Exclude development and workspace-only files
+**/.vscode/**
+../.vscode/**
+
+# Node and build artifacts
+node_modules/**
+**/*.map
+out/**/*.map
+
+# Tests, docs not needed in VSIX (keep README)
+**/tests/**
+**/test/**
+**/__tests__/**
+
+# Virtual envs and caches
+venv/**
+**/.venv/**
+**/.pytest_cache/**
+**/.cache/**
+
+# VSIX files
+*.vsix
+
+# Root-level folders outside the extension (prevent accidental inclusion)
+../**

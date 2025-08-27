@@ -1,0 +1,214 @@
+{
+  "name": "noufal-ai-assistant",
+  "displayName": "Noufal AI Assistant",
+  "description": "Powerful AI coding assistant like GitHub Copilot with interactive chat GUI, file operations, terminal commands, and multi-model support",
+  "version": "3.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/ai-coding-assistant.git"
+  },
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Snippets",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onCommand:aiAssistant.start",
+    "onCommand:aiAssistant.chat",
+    "onCommand:aiAssistant.configure",
+    "onCommand:aiAssistant.code",
+    "onCommand:aiAssistant.explain",
+    "onCommand:aiAssistant.refactor",
+    "onCommand:aiAssistant.test",
+    "onCommand:aiAssistant.deploy",
+    "onCommand:aiAssistant.terminal",
+    "onCommand:aiAssistant.fileOps",
+    "onCommand:aiAssistant.checkBackendHealth",
+    "onCommand:aiAssistant.startBackendWorkflow",
+    "onCommand:aiAssistant.clearSessionMemory",
+    "onCommand:aiAssistant.clearWorkspaceMemory",
+    "onCommand:aiAssistant.plan"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiAssistant.start",
+        "title": "$(rocket) Start Assistant",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.chat",
+        "title": "$(comment-discussion) Open Chat",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.configure",
+        "title": "$(gear) Configure API Keys",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.code",
+        "title": "$(code) Generate Code",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.explain",
+        "title": "$(question) Explain Code",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.refactor",
+        "title": "$(tools) Refactor Code",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.test",
+        "title": "$(beaker) Generate Tests",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.deploy",
+        "title": "$(cloud-upload) Deploy Project",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.terminal",
+        "title": "$(terminal) Run Terminal Command",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.fileOps",
+        "title": "$(file-directory) File Operations",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.checkBackendHealth",
+        "title": "$(heartbeat) Check Backend Health",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.startBackendWorkflow",
+        "title": "$(play) Start Backend Workflow",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.clearSessionMemory",
+        "title": "$(trash) Clear Session Memory",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.clearWorkspaceMemory",
+        "title": "$(trash) Clear Workspace Memory",
+        "category": "Noufal AI"
+      },
+      {
+        "command": "aiAssistant.plan",
+        "title": "$(checklist) Plan Task (Planner→Coder)",
+        "category": "Noufal AI"
+      }
+    ],
+    "configuration": {
+      "title": "Noufal AI Assistant",
+      "properties": {
+        "aiAssistant.backendUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8001",
+          "description": "Backend base URL for health/workflow commands"
+        },
+        "aiAssistant.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key (sk-...)"
+        },
+        "aiAssistant.googleApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google AI API Key"
+        },
+        "aiAssistant.useOpenAI": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use OpenAI GPT models"
+        },
+        "aiAssistant.useGoogleAI": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use Google AI models"
+        },
+        "aiAssistant.openaiModel": {
+          "type": "string",
+          "default": "gpt-4",
+          "description": "OpenAI model to use"
+        },
+        "aiAssistant.googleModel": {
+          "type": "string",
+          "default": "gemini-pro",
+          "description": "Google AI model to use"
+        },
+        "aiAssistant.ollamaModel": {
+          "type": "string",
+          "default": "Mistral",
+          "description": "Ollama model to use (Mistral, deepseek-coder:6.7b, codellama:7b)"
+        },
+        "aiAssistant.autoSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-save files after AI modifications"
+        },
+        "aiAssistant.showExplanations": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show explanations for AI suggestions"
+        },
+        "aiAssistant.memory.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable assistant memory (session + workspace)"
+        },
+        "aiAssistant.memory.maxRecentTurns": {
+          "type": "number",
+          "default": 6,
+          "description": "Number of recent turns to include in prompt"
+        },
+        "aiAssistant.memory.workspaceStorePath": {
+          "type": "string",
+          "default": ".vscode/noufal-ai/memory.json",
+          "description": "Relative path to workspace memory JSON"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "aiAssistant.chat",
+        "key": "ctrl+alt+c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiAssistant.code",
+        "key": "ctrl+alt+a",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "aiAssistant.explain",
+        "key": "ctrl+alt+e",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^4.9.4"
+  }
+}
